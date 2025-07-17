@@ -1,4 +1,4 @@
-package com.haco.shop.config
+package com.haco.shop.infrastructure.configs
 
 import com.haco.shop.infrastructure.utils.jwt.JwtAuthenticationFilter
 import org.springframework.context.annotation.Bean

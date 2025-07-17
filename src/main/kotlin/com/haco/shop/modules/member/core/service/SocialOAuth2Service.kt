@@ -1,6 +1,7 @@
 package com.haco.shop.modules.member.core.service
 
 import com.haco.shop.infrastructure.utils.jwt.JwtTokenService
+import com.haco.shop.infrastructure.utils.jwt.RedissonTokenService
 import com.haco.shop.infrastructure.utils.jwt.Tokens
 import com.haco.shop.modules.member.infrastructure.adapter.oauth2.kakao.KakaoAccessTokenResponse
 import com.haco.shop.modules.member.infrastructure.adapter.oauth2.kakao.KakaoUserInfoResponse
@@ -33,7 +34,8 @@ class SocialOAuth2Service(
     @Qualifier("naverRestClient") private val naverRestClient: RestClient,
     @Qualifier("googleRestClient") private val googleRestClient: RestClient,
     private val memberService: MemberService,
-    private val tokenService: JwtTokenService
+    private val tokenService: JwtTokenService,
+    private val redissonTokenService: RedissonTokenService,
 ) {
 
     @Value("\${spring.security.oauth2.client.registration.kakao.client-id}")
@@ -92,6 +94,12 @@ class SocialOAuth2Service(
                     exp = 3600
                 )
 
+                this.redissonTokenService.storeOAuthUserAccessToken(
+                    email = userInfo.kakaoAccount?.email ?: "",
+                    provider = "kakao",
+                    accessToken = tokenResponse.accessToken
+                )
+
                 return tokens
             }
             "naver" -> {
@@ -115,6 +123,12 @@ class SocialOAuth2Service(
                 val tokens = this.tokenService.generateTokens(
                     email = userInfo.response.email ?: "",
                     exp = 3600
+                )
+
+                this.redissonTokenService.storeOAuthUserAccessToken(
+                    email = userInfo.response.email ?: "",
+                    provider = "naver",
+                    accessToken = tokenResponse.accessToken
                 )
 
                 return tokens
@@ -142,7 +156,11 @@ class SocialOAuth2Service(
                     exp = 3600
                 )
                 // TODO: store tokens in Redis
-
+                this.redissonTokenService.storeOAuthUserAccessToken(
+                    email = userInfo.email ?: "",
+                    provider = "google",
+                    accessToken = tokenResponse.accessToken
+                )
                 return tokens
             }
             else -> {
@@ -152,7 +170,7 @@ class SocialOAuth2Service(
     }
 
     private fun getKakaoAccessToken(authorizationCode: String): KakaoAccessTokenResponse? {
-        val requestBody = getRequestBody(authorizationCode)
+        val requestBody = getRequestBody(provider = "kakao", code = authorizationCode)
 
         return try {
             kakaoRestClient.post()
@@ -167,18 +185,32 @@ class SocialOAuth2Service(
         }
     }
 
-    private fun getRequestBody(authorizationCode: String): LinkedMultiValueMap<String, String> {
+    private fun getRequestBody(provider: String, code: String): LinkedMultiValueMap<String, String> {
         return LinkedMultiValueMap<String, String>().apply {
             add("grant_type", "authorization_code")
-            add("client_id", naverClientId)
-            add("client_secret", naverClientSecret)
-            add("redirect_uri", naverRedirectUri)
-            add("code", authorizationCode)
+            when (provider) {
+                "naver" -> {
+                    add("client_id", naverClientId)
+                    add("client_secret", naverClientSecret)
+                    add("redirect_uri", naverRedirectUri)
+                }
+                "google" -> {
+                    add("client_id", googleClientId)
+                    add("client_secret", googleClientSecret)
+                    add("redirect_uri", googleRedirectUri)
+                }
+                "kakao" -> {
+                    add("client_id", kakaoClientId)
+                    add("client_secret", kakaoClientSecret)
+                    add("redirect_uri", kakaoRedirectUri)
+                }
+            }
+            add("code", code)
         }
     }
 
     private fun getNaverAccessToken(authorizationCode: String): NaverAccessTokenResponse? {
-        val requestBody = getRequestBody(authorizationCode)
+        val requestBody = getRequestBody(provider = "naver", code = authorizationCode)
         return try {
             naverRestClient.post()
                 .uri("https://nid.naver.com/oauth2.0/token")
@@ -193,7 +225,7 @@ class SocialOAuth2Service(
     }
 
     private fun getGoogleAccessToken(authorizationCode: String): GoogleAccessTokenResponse? {
-        val requestBody = this.getRequestBody(authorizationCode)
+        val requestBody = getRequestBody(provider = "google", code = authorizationCode)
 
         return try {
             googleRestClient.post()

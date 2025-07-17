@@ -154,7 +154,7 @@ class SocialOAuth2Controller(
         ApiResponse(responseCode = "500", description = "서버 오류")
     ])
     fun getGoogleCredentials(): ResponseEntity<GoogleSocialLoginCredentials> {
-        logger.info("구글 OAuth2 설정 정보 조회 요청")
+        logger.info("============= 구글 OAuth2 설정 정보 조회 요청= ====================")
         
         return try {
             val credentials = socialOAuth2Service.getGoogleSocialLoginCredentials()

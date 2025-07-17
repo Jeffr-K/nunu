@@ -1,5 +1,7 @@
 package com.haco.shop.infrastructure.utils.jwt
 
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.haco.shop.infrastructure.utils.json.JsonUtil
 import org.redisson.api.RedissonClient
 import org.springframework.stereotype.Service
 import java.time.Duration
@@ -9,23 +11,19 @@ import java.util.concurrent.TimeUnit
 class RedissonTokenService(
     private val redissonClient: RedissonClient
 ) {
-    // 1. OAuth AccessToken 저장
-    fun storeOAuthAccessToken(
-        userId: String,
-        provider: String,
-        accessToken: String,
-        expiresInSeconds: Long
-    ) {
-        val key = "oauth:access_token:${provider}:${userId}"
-        val bucket = redissonClient.getBucket<String>(key)
-        bucket.set(accessToken, Duration.ofSeconds(expiresInSeconds))
-    }
 
-    // 2. OAuth AccessToken 조회
-    fun getOAuthAccessToken(userId: String, provider: String): String? {
-        val key = "oauth:access_token:${provider}:${userId}"
+    data class OAuthTokenSession(
+        val accessToken: String,
+        val provider: String
+    )
+
+    fun storeOAuthUserAccessToken(email: String, provider: String, accessToken: String) {
+        val key = "oauth:session:$email"
+        val tokenSession = OAuthTokenSession(accessToken, provider)
+        val jsonValue = JsonUtil.mapper.writeValueAsString(tokenSession)
+
         val bucket = redissonClient.getBucket<String>(key)
-        return bucket.get()
+        bucket.set(jsonValue, Duration.ofHours(1))
     }
 
     // 3. JWT RefreshToken 저장 (분산 락 적용)

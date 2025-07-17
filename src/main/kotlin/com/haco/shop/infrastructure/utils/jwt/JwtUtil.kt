@@ -15,7 +15,7 @@ import javax.crypto.SecretKey
 @Component
 class JwtUtil {
 
-    @Value("\${jwt.secret:hacoShopSecretKeyForJwtTokenGenerationAndValidation}")
+    @Value("\${JWT_SECRET}")
     private lateinit var secret: String
 
     @Value("\${jwt.expiration:86400}")

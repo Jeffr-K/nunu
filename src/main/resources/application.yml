@@ -1,4 +1,9 @@
 spring:
+  config:
+    import:
+      - optional:file:.env[.properties]
+      - optional:file:.env.local[.properties]
+      - optional:file:.env.${spring.profiles.active}[.properties]
   datasource:
     url: jdbc:mysql://localhost:${MYSQL_PORT:3306}/${MYSQL_DATABASE:haco_shop_db}
     username: ${MYSQL_USER:oscarous}
