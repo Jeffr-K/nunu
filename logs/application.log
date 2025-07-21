@@ -170,3 +170,71 @@
 2025-07-21 14:59:17.507 DEBUG 95089 --- [nio-8080-exec-2] o.s.s.w.FilterChainProxy                 : Securing POST /error
 2025-07-21 14:59:17.508 DEBUG 95089 --- [nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
 2025-07-21 14:59:17.508 DEBUG 95089 --- [nio-8080-exec-2] o.s.s.w.a.Http403ForbiddenEntryPoint     : Pre-authenticated entry point called. Rejecting access
+2025-07-21 15:40:57.047  INFO 23461 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 8.0.2.Final
+2025-07-21 15:40:57.076  INFO 23461 --- [  restartedMain] c.h.s.ShopApplicationKt                  : Starting ShopApplicationKt using Java 21.0.7 with PID 23461 (/Users/jeffrey/Desktop/shop/build/classes/kotlin/main started by jeffrey in /Users/jeffrey/Desktop/shop)
+2025-07-21 15:40:57.081 DEBUG 23461 --- [  restartedMain] c.h.s.ShopApplicationKt                  : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-07-21 15:40:57.081  INFO 23461 --- [  restartedMain] c.h.s.ShopApplicationKt                  : No active profile set, falling back to 1 default profile: "default"
+2025-07-21 15:40:57.115  INFO 23461 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-21 15:40:57.116  INFO 23461 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-21 15:40:57.951  INFO 23461 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-21 15:40:57.952  INFO 23461 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-07-21 15:40:57.984  INFO 23461 --- [  restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.haco.shop.modules.member.infrastructure.repositories.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-07-21 15:40:57.985  INFO 23461 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 0 JDBC repository interfaces.
+2025-07-21 15:40:57.990  INFO 23461 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-21 15:40:57.991  INFO 23461 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-21 15:40:58.124  INFO 23461 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 130 ms. Found 1 JPA repository interface.
+2025-07-21 15:40:58.132  INFO 23461 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-21 15:40:58.133  INFO 23461 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-21 15:40:58.141  INFO 23461 --- [  restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.haco.shop.modules.member.infrastructure.repositories.MemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-07-21 15:40:58.141  INFO 23461 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2025-07-21 15:40:58.472  INFO 23461 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port 8080 (http)
+2025-07-21 15:40:58.482  INFO 23461 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2025-07-21 15:40:58.483  INFO 23461 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2025-07-21 15:40:58.483  INFO 23461 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-21 15:40:58.509  INFO 23461 --- [  restartedMain] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2025-07-21 15:40:58.509  INFO 23461 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1393 ms
+2025-07-21 15:40:58.596 DEBUG 23461 --- [  restartedMain] c.h.s.i.u.j.JwtAuthenticationFilter      : Filter 'jwtAuthenticationFilter' configured for use
+2025-07-21 15:40:58.597 DEBUG 23461 --- [  restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2025-07-21 15:40:58.673  INFO 23461 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-21 15:40:58.710  INFO 23461 --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-21 15:40:58.744  INFO 23461 --- [  restartedMain] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2025-07-21 15:40:58.945  INFO 23461 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-21 15:40:58.964  INFO 23461 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2025-07-21 15:40:59.243  INFO 23461 --- [  restartedMain] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2dc0a78e
+2025-07-21 15:40:59.244  INFO 23461 --- [  restartedMain] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2025-07-21 15:40:59.302  WARN 23461 --- [  restartedMain] o.h.o.deprecation                        : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-21 15:40:59.311  INFO 23461 --- [  restartedMain] o.h.o.c.pooling                          : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.42
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-21 15:40:59.836  INFO 23461 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-21 15:40:59.898  INFO 23461 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-21 15:41:00.331  INFO 23461 --- [  restartedMain] o.r.Version                              : Redisson 3.24.3
+2025-07-21 15:41:00.363  WARN 23461 --- [  restartedMain] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2025-07-21 15:41:00.499  INFO 23461 --- [isson-netty-2-7] o.r.c.p.MasterPubSubConnectionPool       : 1 connections initialized for localhost/127.0.0.1:6379
+2025-07-21 15:41:00.531  INFO 23461 --- [sson-netty-2-24] o.r.c.p.MasterConnectionPool             : 10 connections initialized for localhost/127.0.0.1:6379
+2025-07-21 15:41:01.063  WARN 23461 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-21 15:41:01.118 DEBUG 23461 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2025-07-21 15:41:01.169 DEBUG 23461 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-07-21 15:41:01.259  INFO 23461 --- [  restartedMain] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 1 endpoint beneath base path '/actuator'
+2025-07-21 15:41:01.278 DEBUG 23461 --- [  restartedMain] swordEncoderAuthenticationManagerBuilder : No authenticationProviders and no parentAuthenticationManager defined. Returning null.
+2025-07-21 15:41:01.351 DEBUG 23461 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-07-21 15:41:01.396 DEBUG 23461 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-07-21 15:41:01.428 DEBUG 23461 --- [  restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-07-21 15:41:01.742  INFO 23461 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-21 15:41:01.817  INFO 23461 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2025-07-21 15:41:01.823  INFO 23461 --- [  restartedMain] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port 8080 (http) with context path '/'
+2025-07-21 15:41:01.834  INFO 23461 --- [  restartedMain] c.h.s.ShopApplicationKt                  : Started ShopApplicationKt in 5.062 seconds (process running for 5.914)
+2025-07-21 15:41:02.212  INFO 23461 --- [on(3)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-21 15:41:02.213  INFO 23461 --- [on(3)-127.0.0.1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2025-07-21 15:41:02.213 DEBUG 23461 --- [on(3)-127.0.0.1] o.s.w.s.DispatcherServlet                : Detected StandardServletMultipartResolver
+2025-07-21 15:41:02.213 DEBUG 23461 --- [on(3)-127.0.0.1] o.s.w.s.DispatcherServlet                : Detected AcceptHeaderLocaleResolver
+2025-07-21 15:41:02.213 DEBUG 23461 --- [on(3)-127.0.0.1] o.s.w.s.DispatcherServlet                : Detected FixedThemeResolver
+2025-07-21 15:41:02.214 DEBUG 23461 --- [on(3)-127.0.0.1] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@276c92b6
+2025-07-21 15:41:02.214 DEBUG 23461 --- [on(3)-127.0.0.1] o.s.w.s.DispatcherServlet                : Detected org.springframework.web.servlet.support.SessionFlashMapManager@2c11c42b
+2025-07-21 15:41:02.222 DEBUG 23461 --- [on(3)-127.0.0.1] o.s.w.s.DispatcherServlet                : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-07-21 15:41:02.222  INFO 23461 --- [on(3)-127.0.0.1] o.s.w.s.DispatcherServlet                : Completed initialization in 9 ms
